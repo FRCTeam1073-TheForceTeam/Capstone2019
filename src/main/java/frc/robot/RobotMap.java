@@ -16,8 +16,7 @@ public class RobotMap {
   * public static int rangefinderModule = 1;
   */
   
-  /** I'm not sure how to set up MAX Sparks, so please put examples here ASAP! -Jack */
-
+  // Setting motor IDs
   private static final int LeftFirstDeviceID = 12;
   private static final int LeftSecondDeviceID = 14;
   private static final int LeftThirdDeviceID = 16;
@@ -26,6 +25,7 @@ public class RobotMap {
   private static final int RightSecondDeviceID = 15;
   private static final int RightThirdDeviceID = 17;
 
+  // Initializing the objects for the motors :)
   private static CANSparkMax m_LeftFirstMotor = new CANSparkMax(LeftFirstDeviceID, MotorType.kBrushless);
   private static CANSparkMax m_LeftSecondMotor = new CANSparkMax(LeftSecondDeviceID, MotorType.kBrushless);
   private static CANSparkMax m_LeftThirdMotor = new CANSparkMax(LeftThirdDeviceID, MotorType.kBrushless);
@@ -35,6 +35,7 @@ public class RobotMap {
   private static CANSparkMax m_RightThirdMotor = new CANSparkMax(RightThirdDeviceID, MotorType.kBrushless);
 
 	public static void init() {
+    // Resets motors to default
     m_LeftFirstMotor.restoreFactoryDefaults();
     m_LeftSecondMotor.restoreFactoryDefaults();
     m_LeftThirdMotor.restoreFactoryDefaults();
