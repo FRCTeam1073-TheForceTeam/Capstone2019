@@ -18,14 +18,29 @@ public class RobotMap {
   
   /** I'm not sure how to set up MAX Sparks, so please put examples here ASAP! -Jack */
 
-  private static final int leftDeviceID = 1;
-  private static final int rightDeviceID = 2;
+  private static final int LeftFirstDeviceID = 12;
+  private static final int LeftSecondDeviceID = 14;
+  private static final int LeftThirdDeviceID = 16;
 
-  private static CANSparkMax m_leftMotor = new CANSparkMax(leftDeviceID, MotorType.kBrushless);
-  private static CANSparkMax m_rightMotor = new CANSparkMax(rightDeviceID, MotorType.kBrushless);
+  private static final int RightFirstDeviceID = 13;
+  private static final int RightSecondDeviceID = 15;
+  private static final int RightThirdDeviceID = 17;
+
+  private static CANSparkMax m_LeftFirstMotor = new CANSparkMax(LeftFirstDeviceID, MotorType.kBrushless);
+  private static CANSparkMax m_LeftSecondMotor = new CANSparkMax(LeftSecondDeviceID, MotorType.kBrushless);
+  private static CANSparkMax m_LeftThirdMotor = new CANSparkMax(LeftThirdDeviceID, MotorType.kBrushless);
+  
+  private static CANSparkMax m_RightFirstMotor = new CANSparkMax(RightFirstDeviceID, MotorType.kBrushless);
+  private static CANSparkMax m_RightSecondMotor = new CANSparkMax(RightSecondDeviceID, MotorType.kBrushless);
+  private static CANSparkMax m_RightThirdMotor = new CANSparkMax(RightThirdDeviceID, MotorType.kBrushless);
 
 	public static void init() {
-    m_leftMotor.restoreFactoryDefaults();
-    m_rightMotor.restoreFactoryDefaults();
+    m_LeftFirstMotor.restoreFactoryDefaults();
+    m_LeftSecondMotor.restoreFactoryDefaults();
+    m_LeftThirdMotor.restoreFactoryDefaults();
+
+    m_RightFirstMotor.restoreFactoryDefaults();
+    m_RightSecondMotor.restoreFactoryDefaults();
+    m_RightThirdMotor.restoreFactoryDefaults();
 	}
 }
