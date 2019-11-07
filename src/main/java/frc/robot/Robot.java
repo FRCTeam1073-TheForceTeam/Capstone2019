@@ -7,7 +7,13 @@
 
 package frc.robot;
 
+import com.revrobotics.CANEncoder;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.EncoderType;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.*;
 
 /**
@@ -21,9 +27,13 @@ public class Robot extends TimedRobot {
   public static Drivetrain drivetrain;
   public static Manipulator manipulator;
   public static OI oi;
+  CANSparkMax motor1;
+  // CANEncoder encoder1;
 
 	protected Robot() {
-		super(0.03); //cycle time
+    super(0.03); //cycle time
+    // encoder1 = motor1.getEncoder(EncoderType.kHallSensor,4096);
+
 	}
 
   /**
@@ -32,6 +42,16 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+    System.out.println("\t"+Utilities.deadzone(0, 0.5));
+    System.out.println("\t"+Utilities.deadzone(-0.25, 0.5));
+    System.out.println("\t"+Utilities.deadzone(-0.5, 0.5));
+    System.out.println("\t"+Utilities.deadzone(-0.75, 0.5));
+    System.out.println("\t" + Utilities.deadzone(-1, 0.5));
+    System.out.println("\t"+Utilities.deadzone(0, 0.5));
+    System.out.println("\t"+Utilities.deadzone(0.25, 0.5));
+    System.out.println("\t"+Utilities.deadzone(0.5, 0.5));
+    System.out.println("\t"+Utilities.deadzone(0.75, 0.5));
+    System.out.println("\t" + Utilities.deadzone(1, 0.5));
     RobotMap.init();
 
     drivetrain = new Drivetrain();
@@ -39,7 +59,6 @@ public class Robot extends TimedRobot {
     manipulator = new Manipulator();
 
     oi = new OI();
-
   }
 
   /**
@@ -67,7 +86,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-
+		Scheduler.getInstance().run();
   }
 
   /**
@@ -75,7 +94,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-
+		Scheduler.getInstance().run();
   }
 
   /**
@@ -83,6 +102,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    Scheduler.getInstance().run();
   }
 
   /**
@@ -90,5 +110,15 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void testPeriodic() {
+    Scheduler.getInstance().run();
   }
+  
+  @Override
+  public void disabledInit() {
+    System.out.println("\t"+Utilities.deadzone(0, 0.5));
+    System.out.println("\t"+Utilities.deadzone(0.25, 0.5));
+    System.out.println("\t"+Utilities.deadzone(0.5, 0.5));
+    System.out.println("\t"+Utilities.deadzone(0.75, 0.5));
+    System.out.println("\t"+Utilities.deadzone(1, 0.5));
+  } 
 }

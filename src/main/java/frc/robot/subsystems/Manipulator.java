@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.*;
 import frc.robot.commands.*;
+import frc.robot.commands.controls.*;
 
 /**
  * Manipulator Subsystem
@@ -26,6 +27,11 @@ public class Manipulator extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-    setDefaultCommand(new ManipulatorControls());
+    // setDefaultCommand(new ControlledMotorGroup(
+    //                     new ControlledMotor[]{
+
+    //                     },
+    //                     Robot.oi.operatorCancel,
+    //                     this));
   }
 }
