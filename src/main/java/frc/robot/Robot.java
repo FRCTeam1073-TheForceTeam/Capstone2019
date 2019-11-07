@@ -21,7 +21,7 @@ public class Robot extends TimedRobot {
   public static Drivetrain drivetrain;
   public static Manipulator manipulator;
   public static OI oi;
-
+  public static Bling bling;
 	protected Robot() {
 		super(0.03); //cycle time
 	}
@@ -39,6 +39,9 @@ public class Robot extends TimedRobot {
     manipulator = new Manipulator();
 
     oi = new OI();
+
+    bling = new Bling();
+    bling.sendRobotInit();
 
   }
 
