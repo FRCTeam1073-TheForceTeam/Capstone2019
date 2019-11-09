@@ -121,5 +121,6 @@ public class Robot extends TimedRobot {
     System.out.println("\t"+Utilities.deadzone(0.5, 0.5));
     System.out.println("\t"+Utilities.deadzone(0.75, 0.5));
     System.out.println("\t"+Utilities.deadzone(1, 0.5));
+    
   } 
 }
