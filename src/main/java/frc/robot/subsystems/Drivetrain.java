@@ -61,7 +61,7 @@ public class Drivetrain extends Subsystem {
     rightFollower1.setSmartCurrentLimit(60);
 
     leftEncoder = left.getEncoder();
-      // rightEncoder = left.getEncoder();
+    rightEncoder = left.getEncoder();
     leftController = left.getPIDController();
     leftController.setFeedbackDevice(leftEncoder);
     // rightController = right.getPIDController();
