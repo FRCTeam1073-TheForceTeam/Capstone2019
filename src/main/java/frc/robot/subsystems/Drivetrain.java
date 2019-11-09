@@ -92,22 +92,9 @@ public class Drivetrain extends Subsystem {
     SmartDashboard.putNumber("Right Follower Temperature", rightFollower1.getMotorTemperature());
     
     // Creates Dashboard-Widget for Output-Currents of the Motors
-    SmartDashboard.putNumber("Left Leader Output-Current", left.getMotorTemperature());
-    SmartDashboard.putNumber("Left Follower Output-Current", leftFollower1.getMotorTemperature());
-    SmartDashboard.putNumber("Left Leader Output-Current", right.getMotorTemperature());
-    SmartDashboard.putNumber("Left Follow Output-Current", rightFollower1.getMotorTemperature());
-
-    
-    
-
-
-
-
-
-
-
-
-
-
+    SmartDashboard.putNumber("Left Leader Current", left.getMotorTemperature());
+    SmartDashboard.putNumber("Left Follower Current", leftFollower1.getMotorTemperature());
+    SmartDashboard.putNumber("Right Leader Current", right.getMotorTemperature());
+    SmartDashboard.putNumber("Right Follower Current", rightFollower1.getMotorTemperature());
   }
 }
