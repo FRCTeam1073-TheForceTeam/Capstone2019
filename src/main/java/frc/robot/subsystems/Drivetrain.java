@@ -76,9 +76,38 @@ public class Drivetrain extends Subsystem {
    setDefaultCommand(new DriveControls());
   }
   public void telemetryPeriodic() {
+
+    // Creates Dashboard-Widget for Positions of Encoders
     SmartDashboard.putNumber("Left Encoder Position", leftEncoder.getPosition());
     SmartDashboard.putNumber("Right Encoder Position", rightEncoder.getPosition());
+   
+    // Creates Dashboard-Widget for Velocities of Encoders
     SmartDashboard.putNumber("Left Encoder Velocity", leftEncoder.getVelocity());
     SmartDashboard.putNumber("Right Encoder Velocity", rightEncoder.getVelocity());
+
+    // Creates Dashboard-Widget for Temperatures of the Motors
+    SmartDashboard.putNumber("Left Leader Temperature", left.getMotorTemperature());
+    SmartDashboard.putNumber("Left Follower Temperature", leftFollower1.getMotorTemperature());
+    SmartDashboard.putNumber("Right Leader Temperature", right.getMotorTemperature());
+    SmartDashboard.putNumber("Right Follower Temperature", rightFollower1.getMotorTemperature());
+    
+    // Creates Dashboard-Widget for Output-Currents of the Motors
+    SmartDashboard.putNumber("Left Leader Output-Current", left.getMotorTemperature());
+    SmartDashboard.putNumber("Left Follower Output-Current", leftFollower1.getMotorTemperature());
+    SmartDashboard.putNumber("Left Leader Output-Current", right.getMotorTemperature());
+    SmartDashboard.putNumber("Left Follow Output-Current", rightFollower1.getMotorTemperature());
+
+    
+    
+
+
+
+
+
+
+
+
+
+
   }
 }
