@@ -7,12 +7,12 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.*;
 import frc.robot.*;
 
 public class ManipulatorControls extends Command {
-
   public ManipulatorControls() {
     requires(Robot.manipulator);
   }
@@ -20,6 +20,12 @@ public class ManipulatorControls extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    // Robot.manipulator.leftCollector.set(Robot.oi.getOpAxis(1)*0.1);
+    if (Robot.oi.driverControl.a.get()) {
+      Robot.manipulator.openClaw();
+    } else {
+      Robot.manipulator.closeClaw();
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()

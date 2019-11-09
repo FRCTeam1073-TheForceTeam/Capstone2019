@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.ControlType;
 import com.revrobotics.EncoderType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -41,27 +42,41 @@ public class Drivetrain extends Subsystem {
   public Drivetrain() {
     left = new CANSparkMax(12, MotorType.kBrushless);
     right = new CANSparkMax(13, MotorType.kBrushless);
-    leftEncoder = left.getEncoder();
-    rightEncoder = left.getEncoder();
-    leftController = left.getPIDController();
-    rightController = right.getPIDController();
-    left.restoreFactoryDefaults();
-    right.restoreFactoryDefaults();
-    left.setSmartCurrentLimit(45);
-    right.setSmartCurrentLimit(45);
+
     leftFollower1 = new CANSparkMax(14, MotorType.kBrushless);
     rightFollower1 = new CANSparkMax(15, MotorType.kBrushless);
+
+    left.restoreFactoryDefaults();
+    right.restoreFactoryDefaults();
     leftFollower1.restoreFactoryDefaults();
     rightFollower1.restoreFactoryDefaults();
-    leftFollower1.setSmartCurrentLimit(45);
-    rightFollower1.setSmartCurrentLimit(45);
+
     leftFollower1.follow(left);
     rightFollower1.follow(right);
+
+    left.setSmartCurrentLimit(60);
+    right.setSmartCurrentLimit(60);
+    leftFollower1.setSmartCurrentLimit(60);
+    rightFollower1.setSmartCurrentLimit(60);
+
+    leftEncoder = left.getEncoder();
+      // rightEncoder = left.getEncoder();
+    leftController = left.getPIDController();
+    leftController.setFeedbackDevice(leftEncoder);
+    // rightController = right.getPIDController();
+    leftController.setP(5e-6);
+    leftController.setI(1e-6);
+    leftController.setD(0);
+    leftController.setFF(0);
+    leftController.setIZone(0);
+    leftController.setOutputRange(-0.2, 0.2);
+//    rightController.setFeedbackDevice(rightEncoder);
   }
 
   public void setMotors(double val1, double val2) {
-    left.set(val1);
-    right.set(-val2);
+   leftController.setReference(val1*5, ControlType.kVelocity);
+    // left.set(val1);
+//    right.set(-val2);
   }
 
   @Override
