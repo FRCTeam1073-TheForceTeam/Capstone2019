@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.*;
 import frc.robot.commands.*;
 import frc.robot.commands.controls.*;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * Drivetrain Subsystem
@@ -73,5 +74,11 @@ public class Drivetrain extends Subsystem {
     //   }, 
     // this));
    setDefaultCommand(new DriveControls());
+  }
+  public void telemetryPeriodic() {
+    SmartDashboard.putNumber("Left Encoder Position", leftEncoder.getPosition());
+    SmartDashboard.putNumber("Right Encoder Position", rightEncoder.getPosition());
+    SmartDashboard.putNumber("Left Encoder Velocity", leftEncoder.getVelocity());
+    SmartDashboard.putNumber("Right Encoder Velocity", rightEncoder.getVelocity());
   }
 }
