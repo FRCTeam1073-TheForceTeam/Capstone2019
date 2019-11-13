@@ -9,39 +9,8 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
  * floating around.
  */
 public class RobotMap {
-  
-  /** If you are using multiple modules, make sure to define both the port
-  * number and the module. For example you with a rangefinder:
-  * public static int rangefinderPort = 1;
-  * public static int rangefinderModule = 1;
-  */
-  
-  // Setting motor IDs
-  private static final int LeftFirstDeviceID = 12;
-  private static final int LeftSecondDeviceID = 14;
-  private static final int LeftThirdDeviceID = 16;
-
-  private static final int RightFirstDeviceID = 13;
-  private static final int RightSecondDeviceID = 15;
-  private static final int RightThirdDeviceID = 17;
-
-  // Initializing the objects for the motors :)
-  private static CANSparkMax m_LeftFirstMotor = new CANSparkMax(LeftFirstDeviceID, MotorType.kBrushless);
-  private static CANSparkMax m_LeftSecondMotor = new CANSparkMax(LeftSecondDeviceID, MotorType.kBrushless);
-  private static CANSparkMax m_LeftThirdMotor = new CANSparkMax(LeftThirdDeviceID, MotorType.kBrushless);
-  
-  private static CANSparkMax m_RightFirstMotor = new CANSparkMax(RightFirstDeviceID, MotorType.kBrushless);
-  private static CANSparkMax m_RightSecondMotor = new CANSparkMax(RightSecondDeviceID, MotorType.kBrushless);
-  private static CANSparkMax m_RightThirdMotor = new CANSparkMax(RightThirdDeviceID, MotorType.kBrushless);
 
 	public static void init() {
-    // Resets motors to default
-    m_LeftFirstMotor.restoreFactoryDefaults();
-    m_LeftSecondMotor.restoreFactoryDefaults();
-    m_LeftThirdMotor.restoreFactoryDefaults();
-
-    m_RightFirstMotor.restoreFactoryDefaults();
-    m_RightSecondMotor.restoreFactoryDefaults();
-    m_RightThirdMotor.restoreFactoryDefaults();
+    
 	}
 }
