@@ -26,7 +26,7 @@ import frc.robot.commands.controls.*;
 public class Manipulator extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  // public Solenoid leftWrist = new Solenoid(1, 6);
+  public Solenoid leftWrist = new Solenoid(1, 6);
   public WPI_TalonSRX leftCollector = new WPI_TalonSRX(7);
   public WPI_TalonSRX rightCollector = new WPI_TalonSRX(6);
 
@@ -48,9 +48,9 @@ public class Manipulator extends Subsystem {
     //                     this));
   }
   public void openClaw(){
-    // if(!leftWrist.get()){leftWrist.set(true);}
+    if(!leftWrist.get()){leftWrist.set(true);}
   }
   public void closeClaw(){
-    // if(leftWrist.get()){leftWrist.set(false);}
+    if(leftWrist.get()){leftWrist.set(false);}
   }
 }
