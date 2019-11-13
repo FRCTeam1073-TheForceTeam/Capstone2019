@@ -13,6 +13,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.EncoderType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.*;
 import frc.robot.commands.*;
@@ -96,6 +97,7 @@ public class Drivetrain extends Subsystem {
     SmartDashboard.putNumber("Left Follower Current", leftFollower1.getOutputCurrent());
     SmartDashboard.putNumber("Right Leader Current", right.getOutputCurrent());
     SmartDashboard.putNumber("Right Follower Current", rightFollower1.getOutputCurrent());
+
 
     
   }
