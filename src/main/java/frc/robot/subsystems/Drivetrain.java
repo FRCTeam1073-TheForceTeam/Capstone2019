@@ -12,6 +12,7 @@ import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 import com.revrobotics.EncoderType;
+import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -59,6 +60,11 @@ public class Drivetrain extends Subsystem {
     right.setSmartCurrentLimit(60);
     leftFollower1.setSmartCurrentLimit(60);
     rightFollower1.setSmartCurrentLimit(60);
+
+    left.setIdleMode(IdleMode.kBrake);
+    right.setIdleMode(IdleMode.kBrake);
+    leftFollower1.setIdleMode(IdleMode.kBrake);
+    rightFollower1.setIdleMode(IdleMode.kBrake);
 
     leftEncoder = left.getEncoder();
     rightEncoder = right.getEncoder();
