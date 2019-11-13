@@ -84,6 +84,12 @@ public class Drivetrain extends Subsystem {
   }
 
   public void setMotors(double val1, double val2) {
+    leftController.setReference(val1*0.5, ControlType.kDutyCycle);
+    rightController.setReference(-val2*0.5, ControlType.kDutyCycle);
+  }
+
+
+  public void setMotorsPID(double val1, double val2) {
     // left.set(val1*0.5);
     // right.set(-val2*0.5);
       // leftController.setReference(val1 * 0.1, ControlType.kDutyCycle);
