@@ -32,7 +32,7 @@ public class Manipulator extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-//    setDefaultCommand(new ManipulatorControls());
+    setDefaultCommand(new ManipulatorControls());
     // setDefaultCommand(new ControlledMotorGroup(
     //                     new ControlledMotor[]{
 
