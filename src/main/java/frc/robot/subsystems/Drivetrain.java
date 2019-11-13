@@ -62,36 +62,34 @@ public class Drivetrain extends Subsystem {
 
     leftEncoder = left.getEncoder();
     rightEncoder = right.getEncoder();
-        // leftController = left.getPIDController();
-        // leftController.setFeedbackDevice(leftEncoder);
-        // // rightController = right.getPIDController();
-        // leftController.setP(5e-6);
-        // leftController.setI(1e-6);
-        // leftController.setD(0);
-        // leftController.setFF(0);
-        // leftController.setIZone(0);
-        // leftController.setOutputRange(-0.2, 0.2);
+    leftController = left.getPIDController();
+    leftController.setFeedbackDevice(leftEncoder);
+    leftController.setP(1e-4);
+    leftController.setI(0);
+    leftController.setD(0);
+    leftController.setFF(0);
+    leftController.setIZone(0);
+    leftController.setOutputRange(-1, 1);
 
-        // rightController = right.getPIDController();
-        // rightController.setFeedbackDevice(rightEncoder);
-        // // rightController = right.getPIDController();
-        // rightController.setP(5e-6);
-        // rightController.setI(1e-6);
-        // rightController.setD(0);
-        // rightController.setFF(0);
-        // rightController.setIZone(0);
-        // rightController.setOutputRange(-0.2, 0.2);
+    rightController = right.getPIDController();
+    rightController.setFeedbackDevice(rightEncoder);
+    rightController.setP(1e-4);
+    rightController.setI(0);
+    rightController.setD(0);
+    rightController.setFF(0);
+    rightController.setIZone(0);
+    rightController.setOutputRange(-1, 1);
 
     //    rightController.setFeedbackDevice(rightEncoder);
   }
 
   public void setMotors(double val1, double val2) {
-    left.set(val1*0.5);
-    right.set(-val2*0.5);
+    // left.set(val1*0.5);
+    // right.set(-val2*0.5);
       // leftController.setReference(val1 * 0.1, ControlType.kDutyCycle);
       // rightController.setReference(-val2 * 0.1, ControlType.kDutyCycle);
-   //leftController.setReference(val1*1280, ControlType.kVelocity);
-   //rightController.setReference(-val2*1280, ControlType.kVelocity);
+   leftController.setReference(-val1*5000, ControlType.kVelocity);
+   rightController.setReference(val2*5000, ControlType.kVelocity);
     // left.set(val1);
 //    right.set(-val2);
   }

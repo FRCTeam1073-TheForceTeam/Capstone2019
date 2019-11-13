@@ -28,7 +28,7 @@ public class DriveControls extends Command {
     var rotate = Utilities.deadzone(Robot.oi.driverControl.getRawAxis(4), 0.25);
     forward=Utilities.powerRamp(forward);
     rotate=Utilities.powerRamp(rotate);
-    Robot.drivetrain.setMotors((forward + rotate), (forward - rotate) * 0.3);
+    Robot.drivetrain.setMotors((forward - rotate), (forward + rotate));
     System.out.println("Encoder: "+Robot.drivetrain.leftEncoder.getPosition());
     // System.out.print("Left: temp"+Robot.drivetrain.left.getMotorTemperature()+", current "+Robot.drivetrain.left.getOutputCurrent()+"; ");
     // System.out.println("Right: temp"+Robot.drivetrain.right.getMotorTemperature()+", current "+Robot.drivetrain.right.getOutputCurrent());
