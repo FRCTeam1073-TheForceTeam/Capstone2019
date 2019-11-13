@@ -51,7 +51,7 @@ public class RobotMap {
     gyro.reset();
     System.out.println("[Success] Gyro calibrated at " + gyro.getAngle());
   }
-  public void telemetryGyro(){
+  public static void telemetryGyro(){
 
     // creates Dashboard-Widgets for the gyro angle and the rotation
     SmartDashboard.putNumber("Gyro Angle", gyro.getAngle());

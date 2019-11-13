@@ -73,7 +73,7 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     drivetrain.telemetryPeriodic();
 
-    
+    RobotMap.telemetryGyro();
 
   }
 
