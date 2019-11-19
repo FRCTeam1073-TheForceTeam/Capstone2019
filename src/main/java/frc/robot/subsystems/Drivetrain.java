@@ -24,7 +24,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  * Drivetrain Subsystem
  * Methods:
- * 
+ *
  */
 public class Drivetrain extends Subsystem {
   // Put methods for controlling this subsystem
@@ -112,7 +112,7 @@ public class Drivetrain extends Subsystem {
     //   new ControlledMotor[] {
     //     new ControlledMotorAnalog(left,1),
     //     new ControlledMotorAnalog(right,5),
-    //   }, 
+    //   },
     // this));
    setDefaultCommand(new DriveControls());
   }
@@ -121,7 +121,7 @@ public class Drivetrain extends Subsystem {
     // Creates Dashboard-Widget for Positions of Encoders
     SmartDashboard.putNumber("Left Encoder Position", leftEncoder.getPosition());
     SmartDashboard.putNumber("Right Encoder Position", rightEncoder.getPosition());
-   
+
     // Creates Dashboard-Widget for Velocities of Encoders
     SmartDashboard.putNumber("Left Encoder Velocity", leftEncoder.getVelocity());
     SmartDashboard.putNumber("Right Encoder Velocity", rightEncoder.getVelocity());
@@ -131,11 +131,13 @@ public class Drivetrain extends Subsystem {
     SmartDashboard.putNumber("Left Follower Temperature", leftFollower1.getMotorTemperature());
     SmartDashboard.putNumber("Right Leader Temperature", right.getMotorTemperature());
     SmartDashboard.putNumber("Right Follower Temperature", rightFollower1.getMotorTemperature());
-    
+
     // Creates Dashboard-Widget for Output-Currents of the Motors
     SmartDashboard.putNumber("Left Leader Current", left.getMotorTemperature());
     SmartDashboard.putNumber("Left Follower Current", leftFollower1.getMotorTemperature());
     SmartDashboard.putNumber("Right Leader Current", right.getMotorTemperature());
     SmartDashboard.putNumber("Right Follower Current", rightFollower1.getMotorTemperature());
   }
+
+  public double getPosition(){return leftEncoder.getPosition();}
 }
