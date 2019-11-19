@@ -12,6 +12,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.EncoderType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.*;
@@ -27,6 +28,8 @@ public class Robot extends TimedRobot {
   public static Drivetrain drivetrain;
   public static Manipulator manipulator;
   public static OI oi;
+  public static double x = 0, y = 0, rotation = 0;
+  ADXRS450_Gyro gyro=new ADXRS450_Gyro();
 
 	protected Robot() {
     super(0.03); //cycle time
@@ -40,6 +43,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+    gyro.calibrate();
     // System.out.println("\t"+Utilities.deadzone(0, 0.5));
     // System.out.println("\t"+Utilities.deadzone(-0.25, 0.5));
     // System.out.println("\t"+Utilities.deadzone(-0.5, 0.5));
@@ -69,7 +73,14 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    System.out.println("->" + Robot.drivetrain.leftEncoder.getVelocity());
     drivetrain.telemetryPeriodic();
+    double dl = (((drivetrain.leftEncoder.getVelocity() + drivetrain.rightEncoder.getVelocity()) * 0.5 * 0.03 / 3487));
+    double angle = gyro.getAngle();
+    x += dl * Math.cos(angle);
+    y += dl * Math.sin(angle);
+    rotation = angle;
+    System.out.println(x+","+y+","+rotation);
   }
 
   /**
