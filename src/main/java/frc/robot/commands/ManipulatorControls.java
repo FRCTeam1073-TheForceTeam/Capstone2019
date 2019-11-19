@@ -20,7 +20,7 @@ public class ManipulatorControls extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    // Robot.manipulator.leftCollector.set(Robot.oi.getOpAxis(1)*0.1);
+    Robot.manipulator.leftCollector.set((Robot.oi.getDrAxis(2) - Robot.oi.getDrAxis(3) - 1)*0.2);
     if (Robot.oi.driverControl.a.get()) {
       Robot.manipulator.openClaw();
     } else {
