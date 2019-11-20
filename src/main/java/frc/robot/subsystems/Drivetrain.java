@@ -22,7 +22,7 @@ import frc.robot.commands.controls.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * Drivetrain Subsystem
+ * Drivetrain Subsystemvf
  * Methods:
  * 
  */
@@ -70,7 +70,7 @@ public class Drivetrain extends Subsystem {
     rightEncoder = right.getEncoder();
     leftController = left.getPIDController();
     leftController.setFeedbackDevice(leftEncoder);
-    double P = 2e-4, I = 5e-7, D = 0;
+    double P = 2e-4, I = 5e-7, D = 1e-1;
     leftController.setP(P);
     leftController.setI(I);
     leftController.setD(D);
@@ -101,9 +101,9 @@ public class Drivetrain extends Subsystem {
     // right.set(-val2*0.5);
       // leftController.setReference(val1 * 0.1, ControlType.kDutyCycle);
       // rightController.setReference(-val2 * 0.1, ControlType.kDutyCycle);
-   leftController.setReference(-val1*2500, ControlType.kVelocity);
-    rightController.setReference(val2 * 2500, ControlType.kVelocity);
-    System.out.println("target:" + val1 * 2500 + ", actual:" + leftEncoder.getVelocity());
+    leftController.setReference(-val1 * 3500, ControlType.kVelocity);
+    rightController.setReference(val2 * 3500, ControlType.kVelocity);
+    System.out.println("target:" + val1 * 3500 + ", actual:" + leftEncoder.getVelocity());
     // left.set(val1);
 //    right.set(-val2);
   }

@@ -47,10 +47,8 @@ public class Manipulator extends Subsystem {
     //                     Robot.oi.operatorCancel,
     //                     this));
   }
-  public void openClaw(){
-    // if(!leftWrist.get()){leftWrist.set(true);}
-  }
-  public void closeClaw(){
-    // if(leftWrist.get()){leftWrist.set(false);}
+  public void set(double val){
+    rightCollector.set(-Utilities.powerRamp(Utilities.deadzone(val,0.05)));
+    leftCollector.set(Utilities.powerRamp(Utilities.deadzone(val,0.05)));
   }
 }
