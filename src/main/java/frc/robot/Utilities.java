@@ -23,7 +23,7 @@ public class Utilities {
     }
 
     public static double powerRamp(double val) {
-        return powerRamp(val, 1.75);
+        return powerRamp(val, 1.15);
     }
 
     public static double powerRamp(double val, double power) {
